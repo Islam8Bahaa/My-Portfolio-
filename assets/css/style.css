@@ -1984,3 +1984,199 @@ body .body-overlay {
         top: 0;
     }
 }
+
+/* ==========================================================================
+   26 - CV-synced sections (resume bullets, skill matrix, project covers)
+   ========================================================================== */
+
+/* Resume — company line + role bullets */
+.resume-area .resume-content .resume-timeline .item .company {
+    font-size: 14px;
+    color: var(--primary_color);
+    margin-bottom: 16px;
+}
+.resume-area .resume-content .resume-timeline .item ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.resume-area .resume-content .resume-timeline .item ul li {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #999999;
+    padding-left: 18px;
+    margin-bottom: 10px;
+}
+.resume-area .resume-content .resume-timeline .item ul li:last-child {
+    margin-bottom: 0;
+}
+.resume-area .resume-content .resume-timeline .item ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #565656;
+    transition: .3s;
+}
+.resume-area .resume-content .resume-timeline .item:hover ul li::before {
+    background: var(--primary_color);
+}
+.resume-area .resume-content .education-header {
+    margin-top: 70px;
+}
+
+/* Skills — icon-only cards (no self-rated percentages) */
+.skills .skill .skill-inner.icon-only {
+    padding: 46px 0 40px 0;
+}
+.skills .skill .skill-inner.icon-only i {
+    margin-bottom: 0;
+}
+
+/* Skills — technical skills matrix, mirrors the CV categories */
+.skill-matrix {
+    margin-top: 20px;
+    text-align: left;
+}
+.skill-matrix .skill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 24px;
+    padding: 18px 0;
+    border-top: 1px solid #333333;
+}
+.skill-matrix .skill-row:last-child {
+    border-bottom: 1px solid #333333;
+}
+.skill-matrix .skill-row .label {
+    flex: 0 0 140px;
+    font-size: 13px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    line-height: 1.75;
+}
+.skill-matrix .skill-row .value {
+    flex: 1 1 320px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #999999;
+    margin: 0;
+}
+
+/* Portfolio — text cover used until a project screenshot is available */
+.portfolio-items .portfolio-item .portfolio-item-inner .project-cover {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 46px 92px 46px;
+    background: linear-gradient(140deg, #1c1c1c 0%, #0f0f0f 100%);
+    border: 1px solid #333333;
+    border-radius: 30px;
+    transition: .3s;
+}
+.portfolio-items .portfolio-item:hover .portfolio-item-inner .project-cover {
+    border-color: var(--primary_color);
+}
+.portfolio-items .portfolio-item .portfolio-item-inner .project-cover .stack {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--primary_color);
+    margin-bottom: 18px;
+}
+.portfolio-items .portfolio-item .portfolio-item-inner .project-cover p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #cccccc;
+    margin: 0;
+    max-width: 640px;
+}
+.portfolio-items .portfolio-item .project-link {
+    display: inline-block;
+    font-size: 13px;
+    color: #777777;
+    margin-top: 10px;
+    transition: .3s;
+}
+.portfolio-items .portfolio-item:hover .project-link {
+    color: var(--primary_color);
+}
+
+/* Contact — availability line from the CV footer */
+.contact-area .availability {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #999999;
+    margin-bottom: 24px;
+}
+.contact-area h3 a {
+    color: #ffffff;
+    transition: .3s;
+}
+.contact-area h3 a:hover {
+    color: var(--primary_color);
+}
+
+/* Sidebar — CV download link */
+.left-sidebar .cv-btn {
+    display: inline-block;
+    font-size: 13px;
+    color: #999999;
+    margin-top: 16px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #565656;
+    transition: .3s;
+}
+.left-sidebar .cv-btn:hover {
+    color: var(--primary_color);
+    border-bottom-color: var(--primary_color);
+}
+
+@media (max-width: 767px) {
+    .portfolio-items .portfolio-item .portfolio-item-inner .project-cover {
+        padding: 30px 26px 82px 26px;
+    }
+    .portfolio-items .portfolio-item .portfolio-item-inner .project-cover p {
+        font-size: 14px;
+    }
+    .skill-matrix .skill-row .label {
+        flex: 1 1 100%;
+    }
+}
+
+
+/* Contact form — status message + invalid field state */
+.contact-area .contact-content .contact-form .messenger-box-contact__msg {
+    font-size: 14px;
+    line-height: 1.7;
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin-bottom: 26px;
+    border: 1px solid transparent;
+}
+.contact-area .contact-content .contact-form .messenger-box-contact__msg.alert-success {
+    background: rgba(40, 233, 140, .08);
+    border-color: var(--primary_color);
+    color: var(--primary_color);
+}
+.contact-area .contact-content .contact-form .messenger-box-contact__msg.alert-danger {
+    background: rgba(243, 19, 19, .08);
+    border-color: #f36c6c;
+    color: #f39191;
+}
+.contact-area .contact-content .contact-form .input-group input.invalid,
+.contact-area .contact-content .contact-form .input-group textarea.invalid {
+    border-color: #f36c6c;
+}
+.contact-area .contact-content .contact-form button[disabled] {
+    opacity: .6;
+    cursor: not-allowed;
+}
